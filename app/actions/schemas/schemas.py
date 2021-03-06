@@ -1,7 +1,9 @@
-from typing import Literal, List
-from pydantic import BaseModel, conlist
-
-from app.constants.constants import SHIPNAMES
+from pydantic import (
+    BaseModel,
+    conlist,
+)
+from typing_extensions import Literal
+from typing import List
 
 
 class SatelliteSchema(BaseModel):
