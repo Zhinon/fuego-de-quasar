@@ -1,0 +1,5 @@
+SHIPNAMES = [
+    'kenobi',
+    'skaywalker',
+    'sato',
+]
