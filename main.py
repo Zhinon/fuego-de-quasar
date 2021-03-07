@@ -1,14 +1,18 @@
 from fastapi import FastAPI
-from app.actions.schemas.schemas import TopSecretRequestSchema
+from app.actions.schemas.schemas import (
+    TopSecretRequestSchema,
+    ResponseSchema,
+)
+from app.actions.server import ACTIONS_MAP
 
 
 app = FastAPI()
 
 
-@app.get("/")
+@app.get('/')
 def home():
-    return {"message": "Hello world"}
+    return {'message': 'Hello world'}
 
-@app.post("/topsecret/")
+@app.post('/topsecret/', response_model=ResponseSchema)
 def topsecret(request: TopSecretRequestSchema):
-    return request
+    return ACTIONS_MAP['post_get_coords_and_message']().run(request)
