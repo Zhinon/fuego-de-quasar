@@ -17,3 +17,9 @@ INITIAL_SHIPS = [
 ]
 
 SHIPS_OBJECTS = [Ship(**ship) for ship in INITIAL_SHIPS]
+
+SHIPS_MAP = {
+    'kenobi': SHIPS_OBJECTS[0],
+    'skywalker': SHIPS_OBJECTS[1],
+    'sato': SHIPS_OBJECTS[2],
+}

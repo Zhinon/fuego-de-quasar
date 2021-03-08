@@ -3,8 +3,7 @@ from typing import (
     Optional,
     List,
 )
-from typing_extensions import Literal
-
+from app.constants.typing_helper import AllowedShipnames
 
 class Position(BaseModel):
     x: float
@@ -17,6 +16,6 @@ class MessageRecieved(BaseModel):
 
 
 class Ship(BaseModel):
-    name: Literal['kenobi', 'skywalker', 'sato']
+    name: AllowedShipnames
     position: Position
-    last_message_received: Optional[MessageRecieved] = None
+    last_message_received: Optional[MessageRecieved] = MessageRecieved()

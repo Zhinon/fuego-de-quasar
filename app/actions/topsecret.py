@@ -11,15 +11,16 @@ from app.utils import (
 
 class GetCoordsAndMessageAction(BaseAction):
 
-    def validate(self, request):
+    def validate(self, *args, **kwargs):
         self.ships_info = {}
-        request_dict = request.dict()
+        request_dict = kwargs['request'].dict()
         for ship_message in request_dict['satellites']:
             self.ships_info[ship_message['name']] = ship_message
+        import ipdb; ipdb.set_trace()
         if len(self.ships_info) != 3:
             raise HTTPException(status_code=422, detail="Request validation error")
 
-    def _run(self, request):
+    def _run(self, *args, **kwargs):
         kenobi_ship = SHIPS_OBJECTS[0]
         skywalker_ship = SHIPS_OBJECTS[1]
         sato_ship = SHIPS_OBJECTS[2]
@@ -37,8 +38,8 @@ class GetCoordsAndMessageAction(BaseAction):
                     self.ships_info['skywalker']['distance'],
                 ),
                 (
-                    kenobi_ship.position.x,
-                    kenobi_ship.position.y,
+                    sato_ship.position.x,
+                    sato_ship.position.y,
                     self.ships_info['sato']['distance'],
                 )
             ])

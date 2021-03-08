@@ -2,12 +2,13 @@ from pydantic import (
     BaseModel,
     conlist,
 )
+from app.constants.typing_helper import AllowedShipnames
 from typing_extensions import Literal
 from typing import List
 
 
 class SatelliteSchema(BaseModel):
-    name: Literal['kenobi', 'skywalker', 'sato']
+    name: AllowedShipnames
     distance: float
     message: List[str]
 
@@ -37,6 +38,10 @@ class TopSecretRequestSchema(BaseModel):
                 ]
             }
         }
+
+class TopSecretSplitRequestSchema(BaseModel):
+    distance: float
+    message: List[str]
 
 class PositionSchema(BaseModel):
     x: float

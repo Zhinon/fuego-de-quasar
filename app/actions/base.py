@@ -6,13 +6,13 @@ from abc import (
 class BaseAction(metaclass=ABCMeta):
 
     @abstractmethod
-    def validate(self, request):
+    def validate(self, *args, **kwargs):
         ...
 
-    def run(self, request):
-        self.validate(request)
-        return self._run(request)
+    def run(self, *args, **kwargs):
+        self.validate(*args, **kwargs)
+        return self._run(*args, **kwargs)
 
     @abstractmethod
-    def _run(self, request):
+    def _run(self, *args, **kwargs):
         ...
