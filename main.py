@@ -13,6 +13,6 @@ app = FastAPI()
 def home():
     return {'message': 'Hello world'}
 
-@app.post('/topsecret/', response_model=ResponseSchema)
+@app.post('/topsecret/', response_model=ResponseSchema, responses={404: {}})
 def topsecret(request: TopSecretRequestSchema):
     return ACTIONS_MAP['post_get_coords_and_message']().run(request)

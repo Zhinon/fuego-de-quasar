@@ -3,13 +3,13 @@ from sympy import (
     Point,
 )
 
-def get_message_origin(list_of_positions_and_distance):
+def get_location(list_of_positions_and_distance):
     """
     This method receive a list with all postions and the distance to the emisor.
     To to get the origin this method create three circles and get the intersection
     point between this circles
 
-    >>> get_message_origin([(-1, 0, 1), (0, -2, 2), (3, 0, 3)])
+    >>> get_location([(-1, 0, 1), (0, -2, 2), (3, 0, 3)])
     (0, 0)
     """
 

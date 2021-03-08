@@ -7,7 +7,7 @@ INITIAL_SHIPS = [
         'position': {'x': -500, 'y': -200},
     },
     {
-        'name': 'skaywalker',
+        'name': 'skywalker',
         'position': {'x': 100, 'y': -100},
     },
     {
