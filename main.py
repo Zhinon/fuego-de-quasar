@@ -13,7 +13,12 @@ app = FastAPI()
 
 @app.get('/')
 def home():
-    return {'message': 'Hello world'}
+    return {
+        'Operacion': 'Fuego de Quasar',
+        'Author': 'Ariel Aranda',
+        'Api_Doc': 'https://arielaranda-fuego-de-quasar.herokuapp.com/docs',
+        'Api_redoc': 'https://arielaranda-fuego-de-quasar.herokuapp.com/redoc',
+    }
 
 @app.post('/topsecret/', response_model=ResponseSchema, responses={404: {}})
 def topsecret(request: TopSecretRequestSchema):

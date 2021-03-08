@@ -5,4 +5,9 @@ def test_read_main():
     client = TestClient(app)
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello world"}
+    assert response.json() == {
+        'Operacion': 'Fuego de Quasar',
+        'Author': 'Ariel Aranda',
+        'Api_Doc': 'https://arielaranda-fuego-de-quasar.herokuapp.com/docs',
+        'Api_redoc': 'https://arielaranda-fuego-de-quasar.herokuapp.com/redoc',
+    }
